@@ -1,0 +1,37 @@
+/* sidebar menu  */
+.main-sidebar {
+    background: #027F71;
+    width: 80px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 1.5rem 0 1.5rem 0;
+    gap: 1.5rem;
+}
+
+.main-sidebar-extend {
+    position: absolute;
+    z-index: 1;
+    transition: opacity 0.5s;
+    background: #027F71;
+    opacity: 0.9;
+    width: 280px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 1.5rem 1rem;
+    color: white;
+
+}
+
+img {
+    color: white;
+}
+
+.icon-box {
+    height: 22px;
+    width: 22px;
+    cursor: pointer;
+}

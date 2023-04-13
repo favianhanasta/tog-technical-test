@@ -1,0 +1,13 @@
+.ext-1{
+    display: flex;
+    justify-content: space-between;
+}
+
+.ext-2{
+    display: flex;
+    gap: 4rem;
+}
+
+.rounded{
+    border-radius: 20%;
+}
