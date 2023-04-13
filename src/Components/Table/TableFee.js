@@ -1,16 +1,17 @@
 import { Component } from "react";
 import * as ReactDOM from 'react-dom';
-import { Form, Pagination, Table } from "react-bootstrap";
+import { Form, OverlayTrigger, Pagination, Table, Tooltip } from "react-bootstrap";
 import './Table.css'
 const $ = require('jquery');
 $.DataTable = require('datatables.net');
 
 const column = [
-    { title: 'Check', data: 'id' },
+    { title: '', data: 'id' },
     { title: 'Fee Type Code', data: 'id' },
     { title: 'Fee Type Name', data: 'name' },
     { title: 'Description', data: 'description' },
-    { title: 'Status', data: 'status' }
+    { title: 'Status', data: 'status' },
+    { title: 'Actions', data: 'id' }
 ]
 
 class TableFee extends Component {
@@ -258,7 +259,7 @@ class TableFee extends Component {
             columnDefs: [
                 {
                     target: [0],
-                    width: '30px',
+                    width: '75px',
                     createdCell: (td) => {
                         ReactDOM.render(
                             <div className="flex justify-center">
@@ -267,6 +268,51 @@ class TableFee extends Component {
                         )
                     },
 
+                },
+                {
+                    target: [5],
+                    createdCell: (td) => {
+                        ReactDOM.render(
+                            <div className="flex actions">
+                                <OverlayTrigger
+                                    placement="top"
+                                    overlay={(props) => (
+                                        <Tooltip {...props}>
+                                            Click to Edit
+                                        </Tooltip>
+                                    )}
+                                >
+                                    <button>
+                                        <img alt="edit" src="Assets/Images/pencil-square.svg" />
+                                    </button>
+                                </OverlayTrigger>
+                                <OverlayTrigger
+                                    placement="top"
+                                    overlay={(props) => (
+                                        <Tooltip {...props}>
+                                            Click to Detail
+                                        </Tooltip>
+                                    )}
+                                >
+                                    <button>
+                                        <img alt="eye" src="Assets/Images/eye.svg" />
+                                    </button>
+                                </OverlayTrigger>
+                                <OverlayTrigger
+                                    placement="top"
+                                    overlay={(props) => (
+                                        <Tooltip {...props}>
+                                            Click to Delete
+                                        </Tooltip>
+                                    )}
+                                >
+                                    <button>
+                                        <img alt="trash" src="Assets/Images/trash.svg" />
+                                    </button>
+                                </OverlayTrigger>
+                            </div>,td
+                        )
+                    }
                 }
             ],
             destroy: true

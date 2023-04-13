@@ -1,13 +1,22 @@
-.ext-1{
+.ext-1 {
     display: flex;
     justify-content: space-between;
 }
 
-.ext-2{
+.ext-2 {
     display: flex;
     gap: 4rem;
 }
 
-.rounded{
+.rounded {
     border-radius: 20%;
+}
+
+.actions{
+    padding: 0.5rem;
+}
+
+.actions button {
+    background-color: transparent;
+    border: 0px
 }
