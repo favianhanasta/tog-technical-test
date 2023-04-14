@@ -6,7 +6,6 @@ import EditFeeType from './EditFeeType';
 import DetailFeeType from './DetailFeeType';
 import CreateFeeType from './CreateFeeType';
 import DeleteFeeType from './DeleteFeeType';
-import { Alert } from 'react-bootstrap';
 
 
 
