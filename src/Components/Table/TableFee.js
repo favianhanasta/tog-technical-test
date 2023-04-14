@@ -1,17 +1,17 @@
 import { Component } from "react";
 import * as ReactDOM from 'react-dom';
-import { Form, OverlayTrigger, Pagination, Table, Tooltip } from "react-bootstrap";
+import { Form, OverlayTrigger, Pagination, Tooltip } from "react-bootstrap";
 import './Table.css'
 const $ = require('jquery');
 $.DataTable = require('datatables.net');
 
 const column = [
-    { title: '', data: 'id' },
-    { title: 'Fee Type Code', data: 'id' },
-    { title: 'Fee Type Name', data: 'name' },
-    { title: 'Description', data: 'description' },
-    { title: 'Status', data: 'status' },
-    { title: 'Actions', data: 'id' }
+    { data: 'id' },
+    { data: 'id' },
+    { data: 'name' },
+    { data: 'description' },
+    { data: 'status' },
+    { data: 'id' }
 ]
 
 class TableFee extends Component {
@@ -24,245 +24,23 @@ class TableFee extends Component {
         this.state = {
             info: null,
             totalPage: 0,
-            activePage: 1,
-            data: [
-                {
-                    id: "1",
-                    name: 'Service Fee',
-                    description: 'Ea officia aliqua incididunt adipisicing amet duis qui non qui ad.',
-                    status: 'active',
-                },
-                {
-                    id: "2",
-                    name: 'Service Fee',
-                    description: 'Ea officia aliqua incididunt adipisicing amet duis qui non qui ad.',
-                    status: 'active',
-                },
-                {
-                    id: "3",
-                    name: 'Service Fee',
-                    description: 'Ea officia aliqua incididunt adipisicing amet duis qui non qui ad.',
-                    status: 'active',
-                },
-                {
-                    id: "4",
-                    name: 'Service Fee',
-                    description: 'Ea officia aliqua incididunt adipisicing amet duis qui non qui ad.',
-                    status: 'active',
-                },
-                {
-                    id: "5",
-                    name: 'Service Fee',
-                    description: 'Ea officia aliqua incididunt adipisicing amet duis qui non qui ad.',
-                    status: 'active',
-                },
-                {
-                    id: "6",
-                    name: 'Service Fee',
-                    description: 'Ea officia aliqua incididunt adipisicing amet duis qui non qui ad.',
-                    status: 'active',
-                },
-                {
-                    id: "7",
-                    name: 'Service Fee',
-                    description: 'Ea officia aliqua incididunt adipisicing amet duis qui non qui ad.',
-                    status: 'active',
-                },
-                {
-                    id: "8",
-                    name: 'Service Fee',
-                    description: 'Ea officia aliqua incididunt adipisicing amet duis qui non qui ad.',
-                    status: 'active',
-                },
-                {
-                    id: "9",
-                    name: 'Service Fee',
-                    description: 'Ea officia aliqua incididunt adipisicing amet duis qui non qui ad.',
-                    status: 'active',
-                },
-                {
-                    id: "10",
-                    name: 'Service Fee',
-                    description: 'Ea officia aliqua incididunt adipisicing amet duis qui non qui ad.',
-                    status: 'active',
-                },
-                {
-                    id: "11",
-                    name: 'Service Fee',
-                    description: 'Ea officia aliqua incididunt adipisicing amet duis qui non qui ad.',
-                    status: 'active',
-                },
-                {
-                    id: "12",
-                    name: 'Service Fee',
-                    description: 'Ea officia aliqua incididunt adipisicing amet duis qui non qui ad.',
-                    status: 'active',
-                },
-                {
-                    id: "13",
-                    name: 'Service Fee',
-                    description: 'Ea officia aliqua incididunt adipisicing amet duis qui non qui ad.',
-                    status: 'active',
-                },
-                {
-                    id: "14",
-                    name: 'Service Fee',
-                    description: 'Ea officia aliqua incididunt adipisicing amet duis qui non qui ad.',
-                    status: 'active',
-                },
-                {
-                    id: "15",
-                    name: 'Service Fee',
-                    description: 'Ea officia aliqua incididunt adipisicing amet duis qui non qui ad.',
-                    status: 'active',
-                },
-                {
-                    id: "16",
-                    name: 'Service Fee',
-                    description: 'Ea officia aliqua incididunt adipisicing amet duis qui non qui ad.',
-                    status: 'active',
-                },
-                {
-                    id: "17",
-                    name: 'Service Fee',
-                    description: 'Ea officia aliqua incididunt adipisicing amet duis qui non qui ad.',
-                    status: 'active',
-                },
-                {
-                    id: "18",
-                    name: 'Service Fee',
-                    description: 'Ea officia aliqua incididunt adipisicing amet duis qui non qui ad.',
-                    status: 'active',
-                },
-                {
-                    id: "19",
-                    name: 'Service Fee',
-                    description: 'Ea officia aliqua incididunt adipisicing amet duis qui non qui ad.',
-                    status: 'active',
-                },
-                {
-                    id: "20",
-                    name: 'Service Fee',
-                    description: 'Ea officia aliqua incididunt adipisicing amet duis qui non qui ad.',
-                    status: 'active',
-                },
-                {
-                    id: "21",
-                    name: 'Service Fee',
-                    description: 'Ea officia aliqua incididunt adipisicing amet duis qui non qui ad.',
-                    status: 'active',
-                },
-                {
-                    id: "22",
-                    name: 'Service Fee',
-                    description: 'Ea officia aliqua incididunt adipisicing amet duis qui non qui ad.',
-                    status: 'active',
-                },
-                {
-                    id: "23",
-                    name: 'Service Fee',
-                    description: 'Ea officia aliqua incididunt adipisicing amet duis qui non qui ad.',
-                    status: 'active',
-                },
-                {
-                    id: "24",
-                    name: 'Service Fee',
-                    description: 'Ea officia aliqua incididunt adipisicing amet duis qui non qui ad.',
-                    status: 'active',
-                },
-                {
-                    id: "25",
-                    name: 'Service Fee',
-                    description: 'Ea officia aliqua incididunt adipisicing amet duis qui non qui ad.',
-                    status: 'active',
-                },
-                {
-                    id: "26",
-                    name: 'Service Fee',
-                    description: 'Ea officia aliqua incididunt adipisicing amet duis qui non qui ad.',
-                    status: 'active',
-                },
-                {
-                    id: "27",
-                    name: 'Service Fee',
-                    description: 'Ea officia aliqua incididunt adipisicing amet duis qui non qui ad.',
-                    status: 'active',
-                },
-                {
-                    id: "28",
-                    name: 'Service Fee',
-                    description: 'Ea officia aliqua incididunt adipisicing amet duis qui non qui ad.',
-                    status: 'active',
-                },
-                {
-                    id: "29",
-                    name: 'Service Fee',
-                    description: 'Ea officia aliqua incididunt adipisicing amet duis qui non qui ad.',
-                    status: 'active',
-                },
-                {
-                    id: "30",
-                    name: 'Service Fee',
-                    description: 'Ea officia aliqua incididunt adipisicing amet duis qui non qui ad.',
-                    status: 'active',
-                },
-                {
-                    id: "31",
-                    name: 'Service Fee',
-                    description: 'Ea officia aliqua incididunt adipisicing amet duis qui non qui ad.',
-                    status: 'active',
-                },
-                {
-                    id: "32",
-                    name: 'Service Fee',
-                    description: 'Ea officia aliqua incididunt adipisicing amet duis qui non qui ad.',
-                    status: 'active',
-                },
-                {
-                    id: "33",
-                    name: 'Service Fee',
-                    description: 'Ea officia aliqua incididunt adipisicing amet duis qui non qui ad.',
-                    status: 'active',
-                },
-                {
-                    id: "34",
-                    name: 'Service Fee',
-                    description: 'Ea officia aliqua incididunt adipisicing amet duis qui non qui ad.',
-                    status: 'active',
-                },
-                {
-                    id: "35",
-                    name: 'Service Fee',
-                    description: 'Ea officia aliqua incididunt adipisicing amet duis qui non qui ad.',
-                    status: 'active',
-                },
-                {
-                    id: "36",
-                    name: 'Service Fee',
-                    description: 'Ea officia aliqua incididunt adipisicing amet duis qui non qui ad.',
-                    status: 'active',
-                },
-                {
-                    id: "37",
-                    name: 'Service Fee',
-                    description: 'Ea officia aliqua incididunt adipisicing amet duis qui non qui ad.',
-                    status: 'active',
-                },
-            ]
+            activePage: 1
         }
     }
     componentDidMount() {
         $(this.tableRef).DataTable({
             dom: 't',
             columns: column,
-            data: this.state.data,
+            data: this.props.data,
+            orderCellsTop: true,
             columnDefs: [
                 {
                     target: [0],
                     width: '75px',
+                    orderable: false,
                     createdCell: (td) => {
                         ReactDOM.render(
-                            <div className="flex justify-center">
+                            <div>
                                 <Form.Check />
                             </div>, td
                         )
@@ -271,6 +49,7 @@ class TableFee extends Component {
                 },
                 {
                     target: [5],
+                    orderable: false,
                     createdCell: (td) => {
                         ReactDOM.render(
                             <div className="flex actions">
@@ -310,7 +89,7 @@ class TableFee extends Component {
                                         <img alt="trash" src="Assets/Images/trash.svg" />
                                     </button>
                                 </OverlayTrigger>
-                            </div>,td
+                            </div>, td
                         )
                     }
                 }
@@ -320,7 +99,7 @@ class TableFee extends Component {
         let table = $(this.tableRef).DataTable()
         let info = table.page.info();
         this.setState({
-            totalPage: Math.ceil(this.state.data.length / info.length)
+            totalPage: Math.ceil(this.props.data.length / info.length)
         })
         $('#info').html(
             `Showing ${info.start + 1} - ${info.end} of ${info.recordsTotal}`
@@ -344,7 +123,7 @@ class TableFee extends Component {
         // trigger didupdate
         this.setState({
             info: table.page.info(),
-            totalPage: Math.ceil(this.state.data.length / value),
+            totalPage: Math.ceil(this.props.data.length / value),
             activePage: 1
         })
     }
@@ -392,11 +171,23 @@ class TableFee extends Component {
         return (
             <div>
                 <div>
-                    <Table
+                    <table
                         ref={this.setTableRef}
-                        striped
-                        bordered
-                    />
+                        className='table'
+                    >
+                        <thead>
+                            <tr>
+                                <td>
+                                    <Form.Check />
+                                </td>
+                                <td>Fee Type Code</td>
+                                <td>Fee Type Name</td>
+                                <td>Description</td>
+                                <td>Status</td>
+                                <td>Actions</td>
+                            </tr>
+                        </thead>
+                    </table>
                 </div>
                 <div className="flex justify-between">
                     <div className="flex gap-4">
