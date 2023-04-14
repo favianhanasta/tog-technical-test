@@ -61,3 +61,35 @@
     border-radius: 10px;
     box-shadow: 0 2px 9px rgb(0 0 0 / 0.1);
 }
+
+.languange-box {
+    padding: 2rem 4rem;
+    border-radius: 0px 10px 10px 10px;
+    box-shadow: 0 2px 9px rgb(0 0 0 / 0.1);
+    background-color: white;
+}
+
+.selected-menu {
+    z-index: 1;
+    box-shadow: -4px 4px 9px rgb(0 0 0 / 0.1);
+    border-radius: 5px 0px 0px 5px;
+    background-color: white;
+    height: 45px
+}
+
+.unselected-menu {
+    box-shadow: -4px 4px 9px rgb(0 0 0 / 0.1);
+    border-radius: 5px 0px 0px 5px;
+    background-color: #DDDDDD;
+    height: 45px
+}
+
+.btn-save {
+    background: #027F71;
+    color: white;
+}
+
+.btn-cancel {
+    background-color: white;
+    color: #5E5E5E
+}

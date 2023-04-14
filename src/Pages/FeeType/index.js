@@ -3,27 +3,47 @@ import { useState } from "react";
 import { dataFeeType } from '../../Services/DummyData'
 import FeetypeMain from "./FeeType";
 import EditFeeType from './EditFeeType';
+import DetailFeeType from './DetailFeeType';
+import CreateFeeType from './CreateFeeType';
+import DeleteFeeType from './DeleteFeeType';
+import { Alert } from 'react-bootstrap';
 
 
 
 function FeeType() {
     const [data, setData] = useState(dataFeeType);
-    const [route, setRoute] = useState('edit'); // route simulation
+    const [selectedData, setSelectedData] = useState(null);
+    const [route, setRoute] = useState('feeType'); // route simulation
+    const [showAlert, setShowAlert] = useState(false);
+
+    const handleClickActions = ({ data, route }) => {
+        setRoute(route);
+        setSelectedData(data)
+    }
+
+    const handleCancel = () => {
+        setSelectedData(null);
+        setRoute('feeType');
+    }
 
     return (
         <div>
-            <span className="breadcrumb gap-2 flex items-center">
-                Master Data Management
-                <img src="/Assets/Images/right.svg" alt="suitcase" />
-                <span className="color-selected flex items-center">FeeType</span>
-            </span>
             {
                 route === 'feeType' ?
-                    <FeetypeMain data={data} />
+                    <FeetypeMain data={data} handleClickActions={handleClickActions} />
                     :
                     route === 'edit' ?
-                        <EditFeeType />
-                        : null
+                        <EditFeeType selectedData={selectedData} handleCancel={handleCancel} />
+                        :
+                        route === 'detail' ?
+                            <DetailFeeType selectedData={selectedData} handleCancel={handleCancel} />
+                            :
+                            route === 'create' ?
+                                <CreateFeeType selectedData={selectedData} handleCancel={handleCancel} />
+                                :
+                                route === 'delete' ?
+                                    <DeleteFeeType selectedData={selectedData} handleCancel={handleCancel} />
+                                    : null
             }
         </div>
     );

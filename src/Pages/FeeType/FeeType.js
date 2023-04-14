@@ -5,7 +5,7 @@ import * as Yup from 'yup';
 import { useState } from "react";
 import TableFee from "../../Components/Table/TableFee";
 
-function FeetypeMain({ data }) {
+function FeetypeMain({ data, handleClickActions }) {
     const [openAdvOption, setOpenAdvOption] = useState(false);
 
     const searchSchema = Yup.object().shape({
@@ -14,8 +14,40 @@ function FeetypeMain({ data }) {
             .max(256, 'Max 256 Words')
     })
 
+    const downloadArrtoCSV = () => {
+        let csv;
+        for (let row = 0; row < data.length; row++) {
+            let keysAmount = Object.keys(data[row]).length
+            let keysCounter = 0
+            if (row === 0) {
+                for (let key in data[row]) {
+                    csv += key + (keysCounter + 1 < keysAmount ? ',' : '\r\n')
+                    keysCounter++
+                }
+            } else {
+                for (let key in data[row]) {
+                    csv += data[row][key] + (keysCounter + 1 < keysAmount ? ',' : '\r\n')
+                    keysCounter++
+                }
+            }
+
+            keysCounter = 0
+        }
+        let link = document.createElement('a')
+        link.id = 'download-csv';
+        link.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(csv));
+        link.setAttribute('download', 'Fee-type.csv');
+        document.body.appendChild(link)
+        link.click()
+    }
+
     return (
         <div>
+            <span className="breadcrumb gap-2 flex items-center">
+                Master Data Management
+                <img src="/Assets/Images/right.svg" alt="suitcase" />
+                <span className="color-selected flex items-center">FeeType</span>
+            </span>
             <h3>Fee Type</h3>
             <div className="flex justify-between body-feetype">
                 <div className="flex left-side">
@@ -69,7 +101,7 @@ function FeetypeMain({ data }) {
                             </Tooltip>
                         )}
                     >
-                        <button className="btn-grey">
+                        <button className="btn-grey" onClick={downloadArrtoCSV}>
                             <img src="Assets/Images/download.svg" alt="download" />
                         </button>
                     </OverlayTrigger>
@@ -81,7 +113,7 @@ function FeetypeMain({ data }) {
                             </Tooltip>
                         )}
                     >
-                        <button className="btn-grey">
+                        <button className="btn-grey" onClick={() => window.print()}>
                             <img src="Assets/Images/printer.svg" alt="printer" />
                         </button>
                     </OverlayTrigger>
@@ -93,7 +125,7 @@ function FeetypeMain({ data }) {
                             </Tooltip>
                         )}
                     >
-                        <Button style={{ gap: '1rem', display: 'flex', alignItems: 'center', background: '#F3C244', color: '#5E5E5E', border: 'none' }}>
+                        <Button onClick={() => handleClickActions({ route: 'create' })} style={{ gap: '1rem', display: 'flex', alignItems: 'center', background: '#F3C244', color: '#5E5E5E', border: 'none' }}>
                             <img src="Assets/Images/file-plus.svg" alt='file-plus' />
                             Create New
                         </Button>
@@ -122,7 +154,7 @@ function FeetypeMain({ data }) {
                     </div>
                 </div>
             </Collapse>
-            <TableFee data={data} />
+            <TableFee data={data} handleClickActions={handleClickActions} />
         </div>
     );
 }

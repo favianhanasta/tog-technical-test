@@ -53,3 +53,13 @@ code {
 .bold{
   font-weight: bold;
 }
+
+.btn-save {
+  background-color: #027F71;
+  color: white;
+}
+
+.btn-cancel {
+  background-color: white;
+  color: #5E5E5E
+}

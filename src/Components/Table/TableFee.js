@@ -50,42 +50,45 @@ class TableFee extends Component {
                 {
                     target: [5],
                     orderable: false,
-                    createdCell: (td) => {
+                    createdCell: (td, cellData, rowData) => {
                         ReactDOM.render(
                             <div className="flex actions">
                                 <OverlayTrigger
                                     placement="top"
+                                    delay={{ show: 250, hide: 400 }}
                                     overlay={(props) => (
                                         <Tooltip {...props}>
                                             Click to Edit
                                         </Tooltip>
                                     )}
                                 >
-                                    <button>
+                                    <button onClick={() => this.props.handleClickActions({ data: rowData, route: 'edit' })}>
                                         <img alt="edit" src="Assets/Images/pencil-square.svg" />
                                     </button>
                                 </OverlayTrigger>
                                 <OverlayTrigger
                                     placement="top"
+                                    delay={{ show: 250, hide: 250 }}
                                     overlay={(props) => (
                                         <Tooltip {...props}>
                                             Click to Detail
                                         </Tooltip>
                                     )}
                                 >
-                                    <button>
+                                    <button onClick={() => this.props.handleClickActions({ data: rowData, route: 'detail' })}>
                                         <img alt="eye" src="Assets/Images/eye.svg" />
                                     </button>
                                 </OverlayTrigger>
                                 <OverlayTrigger
                                     placement="top"
+                                    delay={{ show: 250, hide: 400 }}
                                     overlay={(props) => (
                                         <Tooltip {...props}>
                                             Click to Delete
                                         </Tooltip>
                                     )}
                                 >
-                                    <button>
+                                    <button onClick={() => this.props.handleClickActions({ data: rowData, route: 'delete' })}>
                                         <img alt="trash" src="Assets/Images/trash.svg" />
                                     </button>
                                 </OverlayTrigger>

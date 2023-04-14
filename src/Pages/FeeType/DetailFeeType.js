@@ -1,7 +1,9 @@
 import FormBox from "../../Components/BoxDetailEdit/FormBox";
 
-function EditFeeType({ selectedData, handleCancel }) {
-
+function DetailFeeType({
+    selectedData,
+    handleCancel
+}) {
     return (
         <div>
             <span className="breadcrumb gap-2 flex items-center">
@@ -9,14 +11,14 @@ function EditFeeType({ selectedData, handleCancel }) {
                 <img src="/Assets/Images/right.svg" alt="suitcase" />
                 Fee Type
                 <img src="/Assets/Images/right.svg" alt="suitcase" />
-                <span className="color-selected flex items-center">Edit Fee Type</span>
+                <span className="color-selected flex items-center">Detail Fee Type</span>
             </span>
-            <h3>Edit Fee Type</h3>
+            <h3>Detail Fee Type</h3>
             <div className="my-4">
-                <FormBox type='edit' selectedData={selectedData} handleCancel={handleCancel} />
+                <FormBox type='detail' selectedData={selectedData} handleCancel={handleCancel} />
             </div>
         </div>
     );
 }
 
-export default EditFeeType;
+export default DetailFeeType;

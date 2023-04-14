@@ -4,11 +4,13 @@ import './Sidebar.css';
 function Sidebar({ expand, setExpand }) {
     const menuItems = [
         {
+            id: '1',
             name: 'Dashboard',
             logoSrc: 'Assets/Images/home-run.svg',
             child: []
         },
         {
+            id: '2',
             name: 'Master Data Management',
             logoSrc: 'Assets/Images/suitcase.svg',
             child: [
@@ -64,19 +66,21 @@ function Sidebar({ expand, setExpand }) {
                             onMouseEnter={() => setExpand(true)}
                             onMouseLeave={() => setExpand(false)}
                         >
-                            <div className={expand ? 'row' : null}>
-                                <div className={`icon-box ${expand ? 'col-2' : null}`} >
+                            <div className={expand ? 'row' : null} >
+                                <div className={`icon-box ${expand ? 'col-2' : null}`}  >
                                     <img src={item.logoSrc} alt={item.name} className='img-full' />
                                 </div>
                                 {
                                     expand ?
-                                        <div className={expand ? 'col-10' : null}>
-                                            <p className='pointer'>{item.name}</p>
+                                        <div className={expand ? 'col-10' : null} >
+                                            <div>
+                                                <p className='pointer' >{item.name}</p>
+                                            </div>
                                             {
                                                 item.child.length > 0 ?
                                                     item.child.map((child, index) => {
                                                         return (
-                                                            <p key={index} className='pointer'>{child.name}</p>
+                                                            <p key={index} className='pointer' style={{ color: child.name === 'Fee Type' ? '#FDC300' : 'white' }}>{child.name}</p>
                                                         )
                                                     })
                                                     : null
